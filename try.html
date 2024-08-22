@@ -3,69 +3,209 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blood Donation Listings</title>
+    <title>Document</title>
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     />
     <style>
-        .search-bar {
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
+        /* Center align the form */
+        .form-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-bottom: 20px;
         }
-        .add-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
+        
+        /* Add animation to the input fields and button */
+        .form-control, #addBtn {
+            transition: all 0.3s ease-in-out;
+            margin-right: 10px; /* Spacing between fields */
         }
-        .add-section input,
-        .add-section button {
-            margin-right: 10px;
+
+        .form-control:focus, #addBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Adjust spacing for small screens */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-control {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+            
+            #addBtn {
+                width: 100%;
+            }
+        }
+
+        /* Styling for the penalty takeaway section */
+        .penalty-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .penalty-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .penalty-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .penalty-section ul li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
+    <div class="header_">
+        <a href="index.html"><h1>- Back -</h1></a>
+        <div id="header-line"></div>
+    </div>
     <div class="container">
-        <div class="search-bar">Search Blood Donation Locations</div>
+        <h1>Near By Location</h1>
+
+        <!-- Form row with horizontal alignment -->
+        <div class="form-row">
+            <input
+                type="text"
+                placeholder="Enter name"
+                class="form-control"
+                id="nameInput"
+                style="width: 20%"
+            />
+            <input
+                type="text"
+                placeholder="Enter location"
+                class="form-control"
+                id="locationInput"
+                style="width: 20%"
+            />
+            <input
+                type="text"
+                placeholder="Enter need"
+                class="form-control"
+                id="needInput"
+                style="width: 20%"
+            />
+            <button class="btn btn-primary" id="addBtn">Add</button>
+        </div>
+
         <input
             type="text"
-            class="form-control"
-            id="filter"
+            class="form-control float-right"
+            style="width: 30%"
             placeholder="Search..."
+            id="filter"
         />
-        <ul class="list-group mt-3" id="list">
+        <ul class="list-group mt-5" id="list">
             <li class="list-group-item">
-                Dr. Vanshree In-charge, Blood Bank Indian Red Cross Society, 1,Red Cross Road, New Delhi 110 001
+                Dr. Vanshree
+                <span class="badge badge-info">Location: New Delhi</span>
+                <span class="badge badge-warning">Need: Blood Donation</span>
                 <a href="#" class="btn btn-danger float-right">New Delhi</a>
             </li>
             <li class="list-group-item">
-                Dr. Meenakshi Sidhar In-charge, Blood Bank Dr. BSA Hospital, Sector-6, Rohini, Delhi-85
+                Dr. Meenakshi Sidhar
+                <span class="badge badge-info">Location: Rohini</span>
+                <span class="badge badge-warning">Need: Blood Donation</span>
                 <a href="#" class="btn btn-danger float-right">Rohini</a>
             </li>
             <li class="list-group-item">
-                Dr. N. Parkash In-charge, Rajiv Gandhi Cancer Institute, Sector-5, Rohini, ND-85
+                Dr. N. Parkash
+                <span class="badge badge-info">Location: Rohini</span>
+                <span class="badge badge-warning">Need: Cancer Treatment</span>
                 <a href="#" class="btn btn-danger float-right">Rohini</a>
             </li>
         </ul>
+
+        <!-- Penalty Takeaway Section -->
+        <div class="penalty-section">
+            <h2>Penalty Takeaways</h2>
+            <ul>
+                <li><strong>Section 420 (IPC):</strong> Imprisonment up to 7 years and a fine for cheating and dishonestly inducing delivery of property.</li>
+                <li><strong>Section 468 (IPC):</strong> Imprisonment up to 7 years and a fine for forgery intended to cheat.</li>
+                <li><strong>Section 469 (IPC):</strong> Imprisonment up to 3 years and a fine for forgery intended to harm reputation.</li>
+                <li><strong>Section 505 (IPC):</strong> Imprisonment up to 3 years, or a fine, or both for making statements conducing to public mischief.</li>
+                <li><strong>Section 66D (IT Act):</strong> Imprisonment up to 3 years and a fine up to ₹1 lakh for cheating by personation using a computer resource.</li>
+                <li><strong>Section 67 (IT Act):</strong> Imprisonment up to 3 years and a fine up to ₹5 lakh for publishing or transmitting obscene material in electronic form.</li>
+            </ul>
+        </div>
+
+        <!-- Backend Storage Section -->
+        <div class="penalty-section">
+            <h2>Backend Storage (MERN Stack)</h2>
+            <p>This application uses MongoDB, Express.js, React, and Node.js (MERN stack) to store and manage data. To access the backend storage:</p>
+            <ul>
+                <li>All data is stored in a MongoDB database named <strong>bloodDonation</strong>.</li>
+                <li>Data can be accessed and managed via the API endpoints hosted on the Node.js server.</li>
+                <li>Ensure the server is running on <strong>http://localhost:5000</strong> to interact with the API.</li>
+                <li>Stored data includes name, location, and need of the person, which is fetched and displayed on the frontend.</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="add-section">
-        <input
-            type="text"
-            id="taskbox"
-            class="form-control"
-            placeholder="Enter new location"
-        />
-        <button class="btn btn-primary" id="btn">Add</button>
-    </div>
+    <script>
+        let addBtn = document.getElementById("addBtn");
+        let list = document.getElementById("list");
+        let filter = document.getElementById("filter");
 
-    <script src="main.js"></script>
+        // Event listener for filtering the list based on search input
+        filter.addEventListener("input", function (e) {
+            let searchItem = e.target.value.toLowerCase();
+            let listItems = document.getElementsByClassName("list-group-item");
+
+            // Iterate over list items to show or hide based on search input
+            for (let i = 0; i < listItems.length; i++) {
+                let listItemText = listItems[i].innerText.toLowerCase();
+
+                if (listItemText.indexOf(searchItem) !== -1) {
+                    listItems[i].style.display = "block"; // Show the item
+                } else {
+                    listItems[i].style.display = "none"; // Hide the item
+                }
+            }
+        });
+
+        // Event listener for adding new items to the list
+        addBtn.addEventListener("click", function () {
+            let name = document.getElementById("nameInput").value;
+            let location = document.getElementById("locationInput").value;
+            let need = document.getElementById("needInput").value;
+            
+            if (name.trim() === "" || location.trim() === "" || need.trim() === "") return; // Prevent adding empty items
+
+            let liElement = document.createElement("li");
+            liElement.className = "list-group-item";
+            liElement.innerHTML = `
+                ${name}
+                <span class="badge badge-info">Location: ${location}</span>
+                <span class="badge badge-warning">Need: ${need}</span>
+                <a href="#" class="btn btn-danger float-right">${location}</a>
+            `;
+
+            list.appendChild(liElement);
+            
+            // Clear input fields after adding
+            document.getElementById("nameInput").value = "";
+            document.getElementById("locationInput").value = "";
+            document.getElementById("needInput").value = "";
+
+            // Event listener for removing items from the list
+            liElement.querySelector("a").addEventListener("click", function () {
+                list.removeChild(liElement);
+            });
+        });
+    </script>
 </body>
 </html>
