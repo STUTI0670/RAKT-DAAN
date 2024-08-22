@@ -3,86 +3,69 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <title>Blood Donation Listings</title>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
     <style>
-        /* Center align the search bar */
-        #search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        /* Search bar styling */
-        #filter {
+        .search-bar {
             font-size: 24px;
             font-weight: bold;
-            width: 50%;
             text-align: center;
-        }
-
-        /* Center align the form */
-        .form-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
             margin-bottom: 20px;
         }
-
-        /* Add animation to the input fields and button */
-        .form-control, #addBtn {
-            transition: all 0.3s ease-in-out;
-            margin-right: 10px; /* Spacing between fields */
+        .add-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
         }
-
-        .form-control:focus, #addBtn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Adjust spacing for small screens */
-        @media (max-width: 768px) {
-            .form-row {
-                flex-direction: column;
-            }
-
-            .form-control {
-                margin-bottom: 10px;
-                margin-right: 0;
-            }
-
-            #addBtn {
-                width: 100%;
-            }
-
-            #filter {
-                width: 80%;
-            }
+        .add-section input,
+        .add-section button {
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="header_">
-        <a href="index.html"><h1>- Back -</h1></a>
-        <div id="header-line"></div>
-    </div>
     <div class="container">
-        <!-- Search bar on top, centered and bold -->
-        <div id="search-container">
-            <input type="text" class="form-control" placeholder="Search..." id="filter" />
-        </div>
-
-        <ul class="list-group mt-5" id="list"></ul>
-
-        <!-- Form row with horizontal alignment, now at the bottom -->
-        <div class="form-row">
-            <input type="text" placeholder="Enter name" class="form-control" id="nameInput" style="width: 20%" />
-            <input type="text" placeholder="Enter location" class="form-control" id="locationInput" style="width: 20%" />
-            <input type="text" placeholder="Enter need" class="form-control" id="needInput" style="width: 20%" />
-            <button class="btn btn-primary" id="addBtn">Add</button>
-        </div>
+        <div class="search-bar">Search Blood Donation Locations</div>
+        <input
+            type="text"
+            class="form-control"
+            id="filter"
+            placeholder="Search..."
+        />
+        <ul class="list-group mt-3" id="list">
+            <li class="list-group-item">
+                Dr. Vanshree In-charge, Blood Bank Indian Red Cross Society, 1,Red Cross Road, New Delhi 110 001
+                <a href="#" class="btn btn-danger float-right">New Delhi</a>
+            </li>
+            <li class="list-group-item">
+                Dr. Meenakshi Sidhar In-charge, Blood Bank Dr. BSA Hospital, Sector-6, Rohini, Delhi-85
+                <a href="#" class="btn btn-danger float-right">Rohini</a>
+            </li>
+            <li class="list-group-item">
+                Dr. N. Parkash In-charge, Rajiv Gandhi Cancer Institute, Sector-5, Rohini, ND-85
+                <a href="#" class="btn btn-danger float-right">Rohini</a>
+            </li>
+        </ul>
     </div>
-    <script src="g.js"></script>
+
+    <div class="add-section">
+        <input
+            type="text"
+            id="taskbox"
+            class="form-control"
+            placeholder="Enter new location"
+        />
+        <button class="btn btn-primary" id="btn">Add</button>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
