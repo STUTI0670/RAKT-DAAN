@@ -9,7 +9,7 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     />
     <style>
-        /* Center align the form */
+        
         .form-row {
             display: flex;
             justify-content: center;
@@ -17,7 +17,7 @@
             margin-bottom: 20px;
         }
         
-        /* Add animation to the input fields and button */
+        
         .form-control, #addBtn {
             transition: all 0.3s ease-in-out;
             margin-right: 10px; /* Spacing between fields */
@@ -28,7 +28,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
-        /* Adjust spacing for small screens */
+        
         @media (max-width: 768px) {
             .form-row {
                 flex-direction: column;
@@ -44,7 +44,7 @@
             }
         }
 
-        /* Styling for the penalty takeaway section */
+        
         .penalty-section {
             margin-top: 40px;
             padding: 20px;
@@ -75,7 +75,7 @@
     <div class="container">
         <h1>Near By Location</h1>
 
-        <!-- Form row with horizontal alignment -->
+        Wake me up
         <div class="form-row">
             <input
                 type="text"
@@ -128,19 +128,7 @@
                 <a href="#" class="btn btn-danger float-right">Rohini</a>
             </li>
         </ul>
-
-        <!-- Penalty Takeaway Section -->
-        <div class="penalty-section">
-            <h2>Penalty Takeaways</h2>
-            <ul>
-                <li><strong>Section 420 (IPC):</strong> Imprisonment up to 7 years and a fine for cheating and dishonestly inducing delivery of property.</li>
-                <li><strong>Section 468 (IPC):</strong> Imprisonment up to 7 years and a fine for forgery intended to cheat.</li>
-                <li><strong>Section 469 (IPC):</strong> Imprisonment up to 3 years and a fine for forgery intended to harm reputation.</li>
-                <li><strong>Section 505 (IPC):</strong> Imprisonment up to 3 years, or a fine, or both for making statements conducing to public mischief.</li>
-                <li><strong>Section 66D (IT Act):</strong> Imprisonment up to 3 years and a fine up to ₹1 lakh for cheating by personation using a computer resource.</li>
-                <li><strong>Section 67 (IT Act):</strong> Imprisonment up to 3 years and a fine up to ₹5 lakh for publishing or transmitting obscene material in electronic form.</li>
-            </ul>
-        </div>
+        
 
         
 
@@ -149,12 +137,12 @@
         let list = document.getElementById("list");
         let filter = document.getElementById("filter");
 
-        // Event listener for filtering the list based on search input
+        
         filter.addEventListener("input", function (e) {
             let searchItem = e.target.value.toLowerCase();
             let listItems = document.getElementsByClassName("list-group-item");
 
-            // Iterate over list items to show or hide based on search input
+        
             for (let i = 0; i < listItems.length; i++) {
                 let listItemText = listItems[i].innerText.toLowerCase();
 
@@ -166,7 +154,7 @@
             }
         });
 
-        // Event listener for adding new items to the list
+        // 
         addBtn.addEventListener("click", function () {
             let name = document.getElementById("nameInput").value;
             let location = document.getElementById("locationInput").value;
@@ -185,12 +173,12 @@
 
             list.appendChild(liElement);
             
-            // Clear input fields after adding
+            
             document.getElementById("nameInput").value = "";
             document.getElementById("locationInput").value = "";
             document.getElementById("needInput").value = "";
 
-            // Event listener for removing items from the list
+    
             liElement.querySelector("a").addEventListener("click", function () {
                 list.removeChild(liElement);
             });
